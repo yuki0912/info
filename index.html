@@ -1,304 +1,485 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="h-full">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人部落格</title>
+    <meta name="theme-color" content="#fceef3">
+    <meta name="description" content="音坂雪 Otozaka Yuki ✦ 日系動漫 VTuber 風格個人動態連結頁面">
+    <title>音坂雪 (Otozaka Yuki) ✦ Official</title>
+
+    <!-- External Fonts & Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        /* 基本樣式設定 */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #f3e8ff 45%, #e6f0fa 100%);
+            --orb-a: #ffc2d4;
+            --orb-b: #d8b4fe;
+            --orb-c: #bae6fd;
+            --card-bg: rgba(255, 255, 255, 0.78);
+            --card-border: rgba(255, 255, 255, 0.95);
+            --text-primary: #3b2d3e;
+            --text-secondary: #78647c;
+            --accent-pink: #f472b6;
+            --accent-purple: #c084fc;
+            --link-bg: rgba(255, 255, 255, 0.88);
+            --link-hover-bg: #ffffff;
+            --shadow-color: rgba(138, 93, 126, 0.15);
+            --font-family: 'Zen Maru Gothic', 'Noto Sans TC', system-ui, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-gradient: linear-gradient(135deg, #130f1e 0%, #1e1730 45%, #0f1929 100%);
+            --orb-a: #701a75;
+            --orb-b: #4c1d95;
+            --orb-c: #1e3a8a;
+            --card-bg: rgba(23, 18, 36, 0.82);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text-primary: #f5eef8;
+            --text-secondary: #b5a4bd;
+            --accent-pink: #f472b6;
+            --accent-purple: #a855f7;
+            --link-bg: rgba(35, 28, 54, 0.78);
+            --link-hover-bg: rgba(50, 40, 77, 0.95);
+            --shadow-color: rgba(0, 0, 0, 0.45);
         }
 
         body {
-            font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f7f9fa;
-            transition: background-color 0.3s, color 0.3s; /* 讓切換模式時有流暢的過渡動畫 */
+            font-family: var(--font-family);
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
         }
 
-        a {
-            text-decoration: none;
-            color: #2c3e50;
-            transition: color 0.3s;
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.35) 1.2px, transparent 1.2px),
+                radial-gradient(rgba(0, 0, 0, 0.03) 1.2px, transparent 1.2px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* 頂部導覽列 */
-        header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e1e8ed;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .nav-links a {
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        /* 主要內容區塊（左右分欄） */
-        .main-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-
-        /* 文章列表 */
-        .posts-section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .post-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .post-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .post-date {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 10px;
-        }
-
-        .post-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .post-title a:hover {
-            color: #3498db;
-        }
-
-        .post-excerpt {
-            color: #555;
-            margin-bottom: 20px;
-            transition: color 0.3s;
-        }
-
-        .read-more {
-            color: #3498db;
-            font-weight: bold;
-        }
-
-        /* 側邊欄（個人簡介） */
-        .sidebar {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            height: fit-content;
-            transition: background-color 0.3s;
-        }
-
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            background-color: #bdc3c7;
+        .orb {
+            position: absolute;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            filter: blur(65px);
+            opacity: 0.65;
+            animation: floatOrb 16s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .orb-a { width: 340px; height: 340px; background: var(--orb-a); top: -80px; left: -80px; }
+        .orb-b { width: 400px; height: 400px; background: var(--orb-b); top: 35%; right: -120px; animation-delay: -5s; }
+        .orb-c { width: 300px; height: 300px; background: var(--orb-c); bottom: 2%; left: -60px; animation-delay: -10s; }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, 30px) scale(1.1); }
+            100% { transform: translate(-30px, 50px) scale(0.95); }
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 24px 60px var(--shadow-color), inset 0 1px 1.5px rgba(255, 255, 255, 0.8);
+            border-radius: 36px;
+            transform-style: preserve-3d;
+            transition: transform 0.25s cubic-bezier(0.1, 0.8, 0.2, 1);
+        }
+
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            border-radius: 28px 28px 0 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 112px;
+            height: 112px;
+            margin: -56px auto 0 auto;
+            z-index: 2;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 42% 58% 52% 48% / 46% 45% 55% 54%;
+            padding: 4px;
+            background: linear-gradient(135deg, #ffffff, var(--accent-pink), #ffffff);
+            box-shadow: 0 12px 28px var(--shadow-color);
+            animation: morphAvatar 7s ease-in-out infinite;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            inset: -6px;
+            border: 1.5px dashed var(--accent-pink);
+            border-radius: 50%;
+            opacity: 0.75;
+            animation: spinRing 22s linear infinite;
+        }
+
+        @keyframes morphAvatar {
+            0%, 100% { border-radius: 42% 58% 52% 48% / 46% 45% 55% 54%; transform: translateY(0); }
+            50% { border-radius: 56% 44% 45% 55% / 50% 58% 42% 50%; transform: translateY(-4px); }
+        }
+
+        @keyframes spinRing {
+            to { transform: rotate(360deg); }
+        }
+
+        .social-icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            background: var(--link-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 12px var(--shadow-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .sidebar h3 {
-            text-align: center;
-            margin-bottom: 10px;
+        .social-icon-btn:hover {
+            transform: translateY(-4px) scale(1.1);
+            background: var(--link-hover-bg);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
-        .sidebar p {
-            color: #666;
-            font-size: 0.95rem;
-            text-align: center;
-            line-height: 1.8;
-            transition: color 0.3s;
+        .link-card-item {
+            background: var(--link-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            border-radius: 22px;
+            box-shadow: 0 6px 18px var(--shadow-color);
+            transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* 頁尾 */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            margin-top: 60px;
-            transition: background-color 0.3s;
+        .link-card-item:hover {
+            transform: translateY(-4px) scale(1.015);
+            background: var(--link-hover-bg);
+            box-shadow: 0 14px 30px var(--shadow-color);
         }
 
-        /* ========================================================
-           新增：黑夜模式（Dark Mode）專屬配色
-           ======================================================== */
-        body.dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
+        .drag-item {
+            cursor: grab;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
-        
-        body.dark-mode header {
-            background-color: #1e1e1e;
-            border-bottom: 1px solid #2d2d2d;
-        }
-        
-        body.dark-mode .logo,
-        body.dark-mode .nav-links a,
-        body.dark-mode .post-title a,
-        body.dark-mode .sidebar h3 {
-            color: #ffffff;
+        .drag-item:active { cursor: grabbing; }
+        .drag-item.dragging { opacity: 0.4; transform: scale(0.98); }
+        .drag-over-indicator { border-top: 2.5px solid var(--accent-pink) !important; }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(50px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            z-index: 100;
         }
 
-        body.dark-mode .nav-links a:hover,
-        body.dark-mode .post-title a:hover {
-            color: #35a5ec;
-        }
-        
-        body.dark-mode .post-card, 
-        body.dark-mode .sidebar {
-            background-color: #1e1e1e;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-        
-        body.dark-mode .post-date {
-            color: #888888;
-        }
-        
-        body.dark-mode .post-excerpt,
-        body.dark-mode .sidebar p {
-            color: #b0b0b0;
-        }
-        
-        body.dark-mode .read-more {
-            color: #35a5ec;
-        }
-
-        body.dark-mode footer {
-            background-color: #1a1a1a;
-            border-top: 1px solid #2d2d2d;
-        }
-
-        /* RWD 手機版優化 */
-        @media (max-width: 768px) {
-            .main-container {
-                grid-template-columns: 1fr;
-            }
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .nav-links a {
-                margin: 0 10px;
-            }
+        .toast-msg.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
-<body>
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">👋 探索日誌</a>
-            <nav class="nav-links">
-                <a href="#">首頁</a>
-                <a href="#">文章分類</a>
-                <a href="#">關於我</a>
-                <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; margin-left: 15px;">🌙</button>
-            </nav>
-        </div>
+<body class="flex flex-col items-center justify-start min-h-screen py-6 px-4 relative">
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+
+    <header class="w-full max-w-[480px] flex items-center justify-between mb-4 z-10 px-2">
+        <button id="themeBtn" class="w-10 h-10 rounded-full bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 shadow-md flex items-center justify-center text-amber-500 hover:scale-105 transition" title="切換主題">
+            <i class="fa-solid fa-palette text-sm"></i>
+        </button>
+        <button id="shareBtn" class="w-10 h-10 rounded-full bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 shadow-md flex items-center justify-center text-sky-500 hover:scale-105 transition" title="分享頁面">
+            <i class="fa-solid fa-share-nodes text-sm"></i>
+        </button>
     </header>
 
-    <main class="main-container">
-        
-        <section class="posts-section">
-            
-            <article class="post-card">
-                <div class="post-date">2026 年 6 月 20 日 • 技術隨筆</div>
-                <h2 class="post-title"><a href="post1.html">我的第一篇部落格文章：網頁設計起步走</a></h2>
-                <p class="post-excerpt">這是我的個人部落格！在這裡我會分享關於程式開發、生活日常以及各種有趣的想法。點擊閱讀更多來看看我是如何用簡單的 HTML 和 CSS 打造這個網站的...</p>
-                <a href="post1.html" class="read-more">閱讀更多 →</a>
-            </article>
+    <main id="mainCard" class="glass-card w-full max-w-[480px] pb-8 relative z-10 my-auto overflow-hidden">
+        <div class="banner-container">
+            <img id="displayBanner" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80" class="banner-img" alt="Banner">
+            <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-semibold text-pink-700 dark:text-pink-300 bg-white/75 dark:bg-slate-900/75 border border-white/80 backdrop-blur-md">
+                ✦ <span id="displayBadge">VTuber ✦ 音坂雪</span>
+            </div>
+        </div>
 
-            <article class="post-card">
-                <div class="post-date">2026 年 6 月 23 日 • 生活日常</div>
-                <h2 class="post-title"><a href="post2.html">如何在忙碌的生活中保持學習的習慣？</a></h2>
-                <p class="post-excerpt">時間總是嫌不夠用嗎？這篇文章分享了我自己愛用的「原子習慣」實踐法，教你如何利用每天通勤或睡前的 15 分鐘，積少成多地累積新技能...</p>
-                <a href="post2.html" class="read-more">閱讀更多 →</a>
-            </article>
+        <div class="px-6 text-center">
+            <div class="avatar-wrap">
+                <div class="avatar-ring"></div>
+                <img id="displayAvatar" class="avatar-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Avatar">
+                <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-400 border-3 border-white dark:border-slate-800 rounded-full shadow-sm"></span>
+            </div>
 
-        </section>
+            <h1 id="displayName" class="text-2xl sm:text-3xl font-black mt-3 tracking-wide">音坂雪</h1>
+            <span id="displaySubname" class="block text-xs text-pink-500 dark:text-pink-300 font-bold tracking-widest mt-1">@otozaka_yuki85 ✦ おとざか ゆき</span>
 
-        <aside class="sidebar">
-            <div class="profile-img">🧑‍💻</div>
-            <h3>關於作者</h3>
-            <p>嗨！我是這個空間的主人。熱愛寫程式、閱讀與旅行。建立這個部落格是希望記錄自己的成長軌跡，並與志同道合的朋友交流。</p>
-        </aside>
+            <p id="displayBio" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-sm mx-auto my-3">
+                歡迎來到音坂雪 (Otozaka Yuki) 的官方連結頁面！🌸<br>歌ってみた / 遊戲實況 / 交流社群 實況配信中！
+            </p>
 
+            <div id="displayTags" class="flex flex-wrap justify-center gap-1.5 my-3"></div>
+
+            <div class="mt-4 mb-6">
+                <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2.5">✦ Social Media ✦</div>
+                <div id="displaySocialsBar" class="flex flex-wrap justify-center items-center gap-2.5 min-h-[46px]"></div>
+            </div>
+
+            <section id="displayLinksContainer" class="flex flex-col gap-3"></section>
+
+            <div id="displayQuoteBox" class="mt-6 p-4 rounded-2xl bg-white/40 dark:bg-white/5 border border-dashed border-pink-300/60 dark:border-pink-500/30 text-center text-xs text-slate-600 dark:text-slate-300">
+                「雪のように舞い降りる、あなたと私の大切な場所。」❄️✨<br>
+                <span class="text-[11px] opacity-80 mt-1 block">宛如飄落的純白雪花，這是我與你最珍貴的場所。</span>
+            </div>
+
+            <footer class="mt-6 text-center text-[11px] text-slate-400 dark:text-slate-500">
+                © <span id="year">2026</span> <span id="footerName">音坂雪 (Otozaka Yuki)</span>
+            </footer>
+        </div>
     </main>
 
-    <footer>
-        <p>© 2026 我的個人部落格. All rights reserved.</p>
-    </footer>
+    <div id="toast" class="toast-msg px-4 py-2.5 rounded-full bg-slate-900/90 text-white text-xs shadow-2xl flex items-center gap-2 border border-white/20">
+        <i class="fa-solid fa-circle-check text-pink-400"></i>
+        <span id="toastText">提示內容</span>
+    </div>
 
     <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        
-        // 1. 檢查使用者過去是否有儲存過偏好的模式
-        const savedTheme = localStorage.getItem('blog-theme');
-        
-        // 2. 如果之前存過是深色模式，就幫網頁加上 dark-mode 類別並換成太陽圖示
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            toggleBtn.textContent = '☀️';
+        const DEFAULT_DATA = {
+            profile: {
+                name: "音坂雪",
+                subname: "@otozaka_yuki85 ✦ おとざか ゆき",
+                badge: "VTuber ✦ 音坂雪",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+                banner: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80",
+                bio: "歡迎來到音坂雪 (Otozaka Yuki) 的官方連結頁面！🌸<br>歌ってみた / 遊戲實況 / 交流社群 實況配信中！",
+                tags: ["🎤 Sing", "🎮 Gaming", "🌸 VTuber", "💬 Chat", "✨ Live"],
+                quote: "「雪のように舞い降りる、あなたと私の大切な場所。」❄️✨<br><span class=\"text-[11px] opacity-80 mt-1 block\">宛如飄落的純白雪花，這是我與你最珍貴的場所。</span>"
+            },
+            theme: "light",
+            particles: { sakura: 24, sparkle: 25 },
+            socials: [
+                { id: "s1", platform: "X (Twitter)", icon: "fa-brands fa-x-twitter", color: "text-slate-800 dark:text-slate-200", url: "https://x.com/otozaka_yuki85" },
+                { id: "s2", platform: "YouTube", icon: "fa-brands fa-youtube", color: "text-red-500", url: "https://www.youtube.com/@Otozaka_yuki85" },
+                { id: "s3", platform: "Twitch", icon: "fa-brands fa-twitch", color: "text-purple-500", url: "https://www.twitch.tv/otozaka_yuki85" },
+                { id: "s4", platform: "Discord", icon: "fa-brands fa-discord", color: "text-indigo-400", url: "https://discord.gg/SNVU5a84Hb" },
+                { id: "s5", platform: "Facebook", icon: "fa-brands fa-facebook", color: "text-blue-500", url: "https://www.facebook.com/otozakayuki/" },
+                { id: "s6", platform: "Threads", icon: "fa-brands fa-threads", color: "text-zinc-800 dark:text-zinc-200", url: "https://www.threads.net/@otozaka_yukii85" },
+                { id: "s7", platform: "Marshmallow", icon: "fa-solid fa-heart", color: "text-pink-400", url: "https://marshmallow-qa.com/otozaka_yuki85" }
+            ],
+            links: [
+                { id: "l1", title: "𝕏 (Twitter) 官方推特", sub: "最新活動資訊與直播預告 ✦ @otozaka_yuki85", url: "https://x.com/otozaka_yuki85", icon: "fa-brands fa-x-twitter", badge: "X", themeColor: "from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 text-slate-800 dark:text-slate-200" },
+                { id: "l2", title: "📺 YouTube 官方頻道", sub: "翻唱曲 MV (歌ってみた)、精華剪輯與直播頻道", url: "https://www.youtube.com/@Otozaka_yuki85", icon: "fa-brands fa-youtube", badge: "MAIN", themeColor: "from-red-100 to-rose-200 dark:from-red-950/40 dark:to-rose-900/40 text-red-600 dark:text-red-400" },
+                { id: "l3", title: "💜 Twitch 直播頻道", sub: "遊戲實況、歌回現場與觀眾互動直播頻道", url: "https://www.twitch.tv/otozaka_yuki85", icon: "fa-brands fa-twitch", badge: "LIVE", themeColor: "from-purple-100 to-indigo-200 dark:from-purple-900/40 dark:to-indigo-800/40 text-purple-600 dark:text-purple-300" },
+                { id: "l4", title: "💬 Discord 粉絲交流社群", sub: "加入音坂雪雪粉交流群，獲取專屬公告與社群互動", url: "https://discord.gg/SNVU5a84Hb", icon: "fa-brands fa-discord", badge: "CHAT", themeColor: "from-indigo-100 to-blue-200 dark:from-indigo-900/40 dark:to-blue-800/40 text-indigo-600 dark:text-indigo-300" },
+                { id: "l5", title: "📘 Facebook 官方粉絲專頁", sub: "臉書專頁動態更新、活動消息與紀錄分享", url: "https://www.facebook.com/otozakayuki/", icon: "fa-brands fa-facebook", badge: "FB", themeColor: "from-blue-100 to-sky-200 dark:from-blue-900/40 dark:to-sky-800/40 text-blue-600 dark:text-blue-300" },
+                { id: "l6", title: "🧵 Threads 隨筆紀錄", sub: "日常隨想、幕後碎碎念與即時動態交流", url: "https://www.threads.net/@otozaka_yukii85", icon: "fa-brands fa-threads", badge: "NEW", themeColor: "from-zinc-100 to-slate-200 dark:from-zinc-800 dark:to-zinc-900 text-zinc-700 dark:text-zinc-200" },
+                { id: "l7", title: "🍬 棉花糖 (マシュマロ) 提問箱", sub: "匿名投稿對雪想說的話、問題諮詢與直播主題許願", url: "https://marshmallow-qa.com/otozaka_yuki85", icon: "fa-solid fa-heart", badge: "Q&A", themeColor: "from-pink-100 to-rose-200 dark:from-pink-900/40 dark:to-rose-800/40 text-pink-500 dark:text-pink-300" }
+            ]
+        };
+
+        let appState = loadState();
+
+        function loadState() {
+            try {
+                const saved = localStorage.getItem('otozaka_yuki_litlink_v3');
+                if (saved) return JSON.parse(saved);
+            } catch (e) { console.error(e); }
+            return JSON.parse(JSON.stringify(DEFAULT_DATA));
         }
 
-        // 3. 監聽按鈕的點擊事件
-        toggleBtn.addEventListener('click', () => {
-            // 切換 body 的 dark-mode 類別（有就移除，沒有就加上）
-            document.body.classList.toggle('dark-mode');
-            
-            // 判斷當前模式，更換按鈕圖示並記錄到瀏覽器記憶體（localStorage）中
-            if (document.body.classList.contains('dark-mode')) {
-                toggleBtn.textContent = '☀️';
-                localStorage.setItem('blog-theme', 'dark'); // 記住深色模式
-            } else {
-                toggleBtn.textContent = '🌙';
-                localStorage.setItem('blog-theme', 'light'); // 記住淺色模式
-            }
-        });
-    </script>
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
 
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        class SakuraPetal {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = -20 - Math.random() * 40;
+                this.size = 8 + Math.random() * 8;
+                this.speedY = 0.7 + Math.random() * 1.3;
+                this.speedX = -0.5 + Math.random() * 1;
+                this.rotation = Math.random() * 360;
+                this.spin = -1 + Math.random() * 2;
+                this.opacity = 0.4 + Math.random() * 0.5;
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y * 0.01) + this.speedX;
+                this.rotation += this.spin;
+                if (this.y > height + 30) this.reset();
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.fillStyle = `rgba(255, 210, 225, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(-this.size, -this.size, -this.size * 1.5, this.size / 3, 0, this.size);
+                ctx.bezierCurveTo(this.size * 1.5, this.size / 3, this.size, -this.size, 0, 0);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class SparkleStar {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = 2 + Math.random() * 4;
+                this.alpha = Math.random();
+                this.speed = 0.01 + Math.random() * 0.02;
+                this.dir = Math.random() > 0.5 ? 1 : -1;
+            }
+            update() {
+                this.alpha += this.speed * this.dir;
+                if (this.alpha >= 1) { this.alpha = 1; this.dir = -1; }
+                else if (this.alpha <= 0.1) { this.reset(); }
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.8})`;
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        let sakuraPetals = [];
+        let sparkleStars = [];
+
+        function renderApp() {
+            const p = appState.profile;
+            document.getElementById('displayName').textContent = p.name;
+            document.getElementById('footerName').textContent = p.name;
+            document.getElementById('displaySubname').textContent = p.subname;
+            document.getElementById('displayBadge').textContent = p.badge;
+            document.getElementById('displayAvatar').src = p.avatar;
+            document.getElementById('displayBanner').src = p.banner;
+            document.getElementById('displayBio').innerHTML = p.bio;
+
+            document.getElementById('displayTags').innerHTML = p.tags.map(t =>
+                `<span class="px-2.5 py-1 rounded-full text-[11px] bg-white/60 dark:bg-white/10 border border-white/70 dark:border-white/10 text-slate-600 dark:text-slate-300">${t}</span>`
+            ).join('');
+
+            document.getElementById('displaySocialsBar').innerHTML = appState.socials.map(s =>
+                `<a href="${s.url}" target="_blank" rel="noopener" class="social-icon-btn group" title="${s.platform}">
+                    <i class="${s.icon} text-lg ${s.color}"></i>
+                </a>`
+            ).join('');
+
+            document.getElementById('displayLinksContainer').innerHTML = appState.links.map(l =>
+                `<a href="${l.url}" target="_blank" rel="noopener" class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br ${l.themeColor} flex items-center justify-center shrink-0 shadow-sm">
+                        <i class="${l.icon} text-lg"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-bold text-sm tracking-wide group-hover:text-pink-500 transition-colors truncate">${l.title}</span>
+                            ${l.badge ? `<span class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-600 dark:text-pink-300 border border-pink-200 shrink-0">${l.badge}</span>` : ''}
+                        </div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">${l.sub}</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
+                </a>`
+            ).join('');
+
+            document.documentElement.setAttribute('data-theme', appState.theme);
+            if (appState.theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+
+            sakuraPetals = Array.from({ length: appState.particles.sakura }, () => new SakuraPetal());
+            sparkleStars = Array.from({ length: appState.particles.sparkle }, () => new SparkleStar());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            sakuraPetals.forEach(p => { p.update(); p.draw(); });
+            sparkleStars.forEach(s => { s.update(); s.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastText').textContent = text;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2600);
+        }
+
+        document.getElementById('themeBtn').addEventListener('click', () => {
+            appState.theme = appState.theme === 'light' ? 'dark' : 'light';
+            renderApp();
+            showToast(`🎨 已切換主題：${appState.theme.toUpperCase()}`);
+        });
+
+        document.getElementById('shareBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(window.location.href);
+            showToast('✨ 連結已成功複製到剪貼簿！');
+        });
+
+        window.onload = function () {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            renderApp();
+            animateParticles();
+        };
+    </script>
 </body>
+
 </html>
