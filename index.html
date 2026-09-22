@@ -1,694 +1,2415 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="h-full dark" data-theme="dark">
+<html lang="zh-TW" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png"
-        href="https://pbs.twimg.com/profile_images/1823968300327706625/fekMHfCB_400x400.jpg">
-    <meta name="theme-color" content="#fceef3">
-    <meta name="description" content="音坂ゆき Otozaka Yuki ✦　個人連結頁面">
-    <title>音坂ゆき (Otozaka Yuki) ✦</title>
 
-    <!-- External Fonts & Libraries -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <meta name="theme-color" content="#120d1c">
+    <meta name="color-scheme" content="dark light">
+
+    <meta name="description"
+        content="音坂ゆき Otozaka Yuki ✦ VTuber 個人連結頁面，集合 X、YouTube、Twitch、Discord、Threads 與棉花糖等社群連結。">
+
+    <meta name="author" content="音坂ゆき">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="音坂ゆき (Otozaka Yuki) ✦">
+    <meta property="og:description"
+        content="音坂ゆき的個人連結頁面 ✦ VTuber / Gaming / Live">
+    <meta property="og:image"
+        content="https://pbs.twimg.com/profile_images/1823968300327706625/fekMHfCB_400x400.jpg">
+    <meta property="og:site_name" content="音坂ゆき">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="音坂ゆき (Otozaka Yuki) ✦">
+    <meta name="twitter:description"
+        content="VTuber / Gaming / Live ✦ 音坂ゆき的個人連結頁面">
+    <meta name="twitter:image"
+        content="https://pbs.twimg.com/profile_images/1823968300327706625/fekMHfCB_400x400.jpg">
+
+    <link rel="icon"
+        type="image/jpeg"
+        href="https://pbs.twimg.com/profile_images/1823968300327706625/fekMHfCB_400x400.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>音坂ゆき (Otozaka Yuki) ✦</title>
 
     <style>
+        /* =========================================================
+           Base
+        ========================================================= */
+
         :root {
-            --bg-gradient: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e1f5fe 100%);
-            --orb-a: #ff80ab;
-            --orb-b: #ce93d8;
-            --orb-c: #80d8ff;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --card-border: rgba(200, 180, 215, 0.7);
-            --text-primary: #000000;
-            --text-secondary: #1f2937;
-            --tag-bg: #e2e8f0;
-            --tag-border: #cbd5e1;
-            --tag-text: #0f172a;
-            --icon-btn-bg: #ffffff;
-            --icon-btn-border: #cbd5e1;
-            --icon-mono-color: #000000;
-            --accent-pink: #d81b60;
-            --accent-purple: #8e24aa;
-            --link-bg: #ffffff;
-            --link-hover-bg: #f8fafc;
-            --shadow-color: rgba(60, 40, 80, 0.15);
-            --font-family: 'Zen Maru Gothic', 'Noto Sans TC', system-ui, sans-serif;
+            --font-main:
+                "Zen Maru Gothic",
+                "Noto Sans TC",
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            --radius-xl: 32px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --transition-fast: 160ms ease;
+            --transition: 260ms cubic-bezier(.2, .8, .2, 1);
+
+            --accent: #f472b6;
+            --accent-strong: #ec4899;
+            --accent-purple: #c084fc;
+
+            --background:
+                radial-gradient(circle at 10% 0%,
+                    rgba(236, 72, 153, .16),
+                    transparent 32%),
+                radial-gradient(circle at 100% 35%,
+                    rgba(139, 92, 246, .18),
+                    transparent 35%),
+                radial-gradient(circle at 0% 100%,
+                    rgba(59, 130, 246, .14),
+                    transparent 30%),
+                linear-gradient(
+                    135deg,
+                    #100b18 0%,
+                    #171023 45%,
+                    #0d1625 100%
+                );
+
+            --surface: rgba(24, 18, 38, .78);
+            --surface-strong: rgba(31, 23, 49, .91);
+            --surface-soft: rgba(255, 255, 255, .055);
+
+            --border:
+                rgba(255, 255, 255, .11);
+
+            --border-strong:
+                rgba(255, 255, 255, .18);
+
+            --text:
+                #ffffff;
+
+            --text-soft:
+                #cbd5e1;
+
+            --text-muted:
+                #94a3b8;
+
+            --shadow:
+                0 24px 70px rgba(0, 0, 0, .42);
+
+            --card-shadow:
+                0 10px 28px rgba(0, 0, 0, .24);
+
+            --button-bg:
+                rgba(28, 22, 46, .82);
         }
 
-        [data-theme="dark"] {
-            --bg-gradient: linear-gradient(135deg, #130f1e 0%, #1e1730 45%, #0f1929 100%);
-            --orb-a: #701a75;
-            --orb-b: #4c1d95;
-            --orb-c: #1e3a8a;
-            --card-bg: rgba(23, 18, 36, 0.88);
-            --card-border: rgba(255, 255, 255, 0.12);
-            --text-primary: #ffffff;
-            --text-secondary: #cbd5e1;
-            --tag-bg: rgba(255, 255, 255, 0.12);
-            --tag-border: rgba(255, 255, 255, 0.15);
-            --tag-text: #f8fafc;
-            --icon-btn-bg: rgba(35, 28, 54, 0.85);
-            --icon-btn-border: rgba(255, 255, 255, 0.15);
-            --icon-mono-color: #ffffff;
-            --accent-pink: #f472b6;
-            --accent-purple: #c084fc;
-            --link-bg: rgba(35, 28, 54, 0.82);
-            --link-hover-bg: rgba(52, 42, 80, 0.95);
-            --shadow-color: rgba(0, 0, 0, 0.5);
+        html[data-theme="light"] {
+            --accent: #db2777;
+            --accent-strong: #be185d;
+            --accent-purple: #9333ea;
+
+            --background:
+                radial-gradient(circle at 10% 0%,
+                    rgba(244, 114, 182, .24),
+                    transparent 32%),
+                radial-gradient(circle at 100% 35%,
+                    rgba(192, 132, 252, .22),
+                    transparent 35%),
+                radial-gradient(circle at 0% 100%,
+                    rgba(96, 165, 250, .17),
+                    transparent 30%),
+                linear-gradient(
+                    135deg,
+                    #fff3f8 0%,
+                    #f5f0ff 48%,
+                    #eef8ff 100%
+                );
+
+            --surface:
+                rgba(255, 255, 255, .78);
+
+            --surface-strong:
+                rgba(255, 255, 255, .92);
+
+            --surface-soft:
+                rgba(255, 255, 255, .62);
+
+            --border:
+                rgba(120, 96, 145, .17);
+
+            --border-strong:
+                rgba(120, 96, 145, .28);
+
+            --text:
+                #18131f;
+
+            --text-soft:
+                #374151;
+
+            --text-muted:
+                #64748b;
+
+            --shadow:
+                0 24px 70px rgba(94, 66, 116, .16);
+
+            --card-shadow:
+                0 10px 28px rgba(94, 66, 116, .11);
+
+            --button-bg:
+                rgba(255, 255, 255, .84);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: var(--font-family);
-            background: var(--bg-gradient);
-            color: var(--text-primary);
             min-height: 100vh;
+            margin: 0;
+            font-family: var(--font-main);
+            color: var(--text);
+            background: var(--background);
             overflow-x: hidden;
-            transition: background 0.4s ease, color 0.4s ease;
+            transition:
+                background-color 300ms ease,
+                color 300ms ease;
         }
 
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background-image:
-                radial-gradient(rgba(0, 0, 0, 0.05) 1.2px, transparent 1.2px),
-                radial-gradient(rgba(255, 255, 255, 0.4) 1.2px, transparent 1.2px);
-            background-size: 28px 28px;
-            background-position: 0 0, 14px 14px;
             pointer-events: none;
             z-index: 0;
+
+            background-image:
+                radial-gradient(
+                    rgba(255, 255, 255, .055) 1px,
+                    transparent 1px
+                );
+
+            background-size: 28px 28px;
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 92%
+            );
         }
 
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(65px);
-            opacity: 0.65;
-            animation: floatOrb 16s ease-in-out infinite alternate;
-            pointer-events: none;
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .orb-a {
-            width: 340px;
-            height: 340px;
-            background: var(--orb-a);
-            top: -80px;
-            left: -80px;
+        a {
+            color: inherit;
         }
 
-        .orb-b {
-            width: 400px;
-            height: 400px;
-            background: var(--orb-b);
-            top: 35%;
-            right: -120px;
-            animation-delay: -5s;
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid rgba(244, 114, 182, .55);
+            outline-offset: 4px;
         }
 
-        .orb-c {
-            width: 300px;
-            height: 300px;
-            background: var(--orb-c);
-            bottom: 2%;
-            left: -60px;
-            animation-delay: -10s;
+        ::selection {
+            background: rgba(244, 114, 182, .35);
+            color: inherit;
         }
 
-        @keyframes floatOrb {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
+        /* =========================================================
+           Background
+        ========================================================= */
 
-            50% {
-                transform: translate(40px, 30px) scale(1.1);
-            }
-
-            100% {
-                transform: translate(-30px, 50px) scale(0.95);
-            }
-        }
-
-        #bgCanvas {
+        #particleCanvas {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
             z-index: 1;
         }
 
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--card-border);
-            box-shadow: 0 20px 50px var(--shadow-color), inset 0 1px 1.5px rgba(255, 255, 255, 0.8);
-            border-radius: 36px;
-            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        .orb {
+            position: fixed;
+            border-radius: 999px;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: .48;
+            will-change: transform;
         }
 
-        .banner-container {
+        .orb-a {
+            width: 300px;
+            height: 300px;
+            top: -110px;
+            left: -100px;
+            background: rgba(236, 72, 153, .38);
+            animation: orbFloatA 16s ease-in-out infinite alternate;
+        }
+
+        .orb-b {
+            width: 360px;
+            height: 360px;
+            right: -130px;
+            top: 34%;
+            background: rgba(139, 92, 246, .3);
+            animation: orbFloatB 20s ease-in-out infinite alternate;
+        }
+
+        .orb-c {
+            width: 270px;
+            height: 270px;
+            left: -100px;
+            bottom: -40px;
+            background: rgba(59, 130, 246, .23);
+            animation: orbFloatC 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes orbFloatA {
+            from {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            to {
+                transform: translate3d(70px, 55px, 0) scale(1.1);
+            }
+        }
+
+        @keyframes orbFloatB {
+            from {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            to {
+                transform: translate3d(-55px, 75px, 0) scale(.94);
+            }
+        }
+
+        @keyframes orbFloatC {
+            from {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            to {
+                transform: translate3d(50px, -45px, 0) scale(1.08);
+            }
+        }
+
+        /* =========================================================
+           Layout
+        ========================================================= */
+
+        .page {
             position: relative;
-            width: 100%;
-            height: 160px;
-            border-radius: 28px 28px 0 0;
-            overflow: hidden;
-            background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+            z-index: 5;
+
+            width: min(100%, 520px);
+            margin: 0 auto;
+
+            padding:
+                max(18px, env(safe-area-inset-top))
+                16px
+                calc(24px + env(safe-area-inset-bottom));
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            min-height: 100vh;
         }
 
-        .banner-img {
+        .toolbar {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .toolbar-left,
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .icon-button {
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border-strong);
+            background: var(--button-bg);
+            color: var(--text);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, .15);
+
+            cursor: pointer;
+            transition:
+                transform var(--transition-fast),
+                box-shadow var(--transition-fast),
+                background-color var(--transition-fast);
+        }
+
+        .icon-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 12px 24px rgba(0, 0, 0, .2);
+        }
+
+        .icon-button:active {
+            transform: scale(.94);
+        }
+
+        .icon-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* =========================================================
+           Main Card
+        ========================================================= */
+
+        .profile-card {
+            width: 100%;
+            overflow: hidden;
+
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+
+            background: var(--surface);
+
+            box-shadow: var(--shadow);
+
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+
+            transition:
+                background-color 300ms ease,
+                border-color 300ms ease,
+                box-shadow 300ms ease;
+        }
+
+        .banner {
+            position: relative;
+            height: 170px;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f9a8d4,
+                    #c4b5fd,
+                    #93c5fd
+                );
+        }
+
+        .banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 30%,
+                    rgba(0, 0, 0, .18)
+                );
+        }
+
+        .banner-image {
             width: 100%;
             height: 100%;
+
+            display: block;
+
             object-fit: cover;
+            object-position: center;
+
+            opacity: .9;
+
+            transform: scale(1.02);
         }
 
-        .avatar-wrap {
+        .banner-label {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 2;
+
+            padding: 7px 11px;
+
+            border: 1px solid rgba(255, 255, 255, .26);
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, .72);
+            color: #7f1d5a;
+
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: .08em;
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, .12);
+        }
+
+        html[data-theme="dark"] .banner-label {
+            background: rgba(15, 10, 24, .72);
+            color: #f9a8d4;
+            border-color: rgba(255, 255, 255, .12);
+        }
+
+        /* =========================================================
+           Profile
+        ========================================================= */
+
+        .profile-content {
+            padding: 0 22px 30px;
+            text-align: center;
+        }
+
+        .avatar-wrapper {
             position: relative;
+
             width: 112px;
             height: 112px;
-            margin: -56px auto 0 auto;
-            z-index: 2;
-        }
 
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 42% 58% 52% 48% / 46% 45% 55% 54%;
-            padding: 4px;
-            background: linear-gradient(135deg, #ffffff, var(--accent-pink), #ffffff);
-            box-shadow: 0 12px 28px var(--shadow-color);
-            animation: morphAvatar 7s ease-in-out infinite;
+            margin: -56px auto 0;
+
+            z-index: 5;
         }
 
         .avatar-ring {
             position: absolute;
-            inset: -6px;
-            border: 1.5px dashed var(--accent-pink);
+            inset: -7px;
+
+            border: 1.5px dashed var(--accent);
             border-radius: 50%;
-            opacity: 0.75;
-            animation: spinRing 22s linear infinite;
+
+            opacity: .8;
+
+            animation: spin 24s linear infinite;
+        }
+
+        .avatar-image {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            padding: 4px;
+
+            object-fit: cover;
+
+            border-radius:
+                44% 56% 52% 48% /
+                48% 45% 55% 52%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    var(--accent),
+                    #ffffff
+                );
+
+            box-shadow:
+                0 16px 32px rgba(0, 0, 0, .24);
+
+            animation:
+                morphAvatar 8s ease-in-out infinite;
         }
 
         @keyframes morphAvatar {
-
             0%,
             100% {
-                border-radius: 42% 58% 52% 48% / 46% 45% 55% 54%;
+                border-radius:
+                    44% 56% 52% 48% /
+                    48% 45% 55% 52%;
                 transform: translateY(0);
             }
 
             50% {
-                border-radius: 56% 44% 45% 55% / 50% 58% 42% 50%;
+                border-radius:
+                    54% 46% 46% 54% /
+                    48% 56% 44% 52%;
                 transform: translateY(-4px);
             }
         }
 
-        @keyframes spinRing {
+        @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
         }
 
-        .tag-pill {
-            background-color: var(--tag-bg);
-            border: 1px solid var(--tag-border);
-            color: var(--tag-text) !important;
+        .name {
+            margin: 15px 0 0;
+
+            font-size: clamp(26px, 7vw, 34px);
+            line-height: 1.15;
+            font-weight: 900;
+            letter-spacing: .05em;
+
+            color: var(--text);
+        }
+
+        .handle {
+            display: inline-block;
+
+            margin-top: 7px;
+
+            color: var(--accent);
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .14em;
+        }
+
+        .intro {
+            max-width: 420px;
+
+            margin: 13px auto 0;
+
+            color: var(--text-soft);
+
+            font-size: 13px;
+            line-height: 1.9;
             font-weight: 700;
         }
 
-        .social-icon-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 9999px;
-            background: var(--icon-btn-bg);
-            border: 1px solid var(--icon-btn-border);
-            box-shadow: 0 4px 12px var(--shadow-color);
+        /* =========================================================
+           Tags
+        ========================================================= */
+
+        .tags {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+
+            margin-top: 14px;
+        }
+
+        .tag {
+            padding: 7px 11px;
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            background: var(--surface-soft);
+            color: var(--text-soft);
+
+            font-size: 11px;
+            font-weight: 900;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* =========================================================
+           Socials
+        ========================================================= */
+
+        .section-label {
+            margin: 23px 0 11px;
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+
+        .social-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .social-button {
+            width: 45px;
+            height: 45px;
+
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+
+            background: var(--button-bg);
+            color: var(--text);
+
+            box-shadow: var(--card-shadow);
+
+            text-decoration: none;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
         }
 
-        .social-icon-btn:hover {
-            transform: translateY(-4px) scale(1.1);
-            box-shadow: 0 8px 20px var(--shadow-color);
+        .social-button:hover {
+            transform: translateY(-4px) scale(1.06);
+            box-shadow:
+                0 15px 30px rgba(0, 0, 0, .18);
+            border-color: rgba(244, 114, 182, .36);
         }
 
-        .link-card-item {
-            background: var(--link-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-primary);
-            border-radius: 22px;
-            box-shadow: 0 6px 18px var(--shadow-color);
-            transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .social-button:active {
+            transform: scale(.95);
+        }
+
+        .social-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .social-button[data-brand="youtube"] {
+            color: #ff0000;
+        }
+
+        .social-button[data-brand="twitch"] {
+            color: #9146ff;
+        }
+
+        .social-button[data-brand="discord"] {
+            color: #5865f2;
+        }
+
+        .social-button[data-brand="facebook"] {
+            color: #1877f2;
+        }
+
+        .social-button[data-brand="marshmallow"] {
+            color: #ff80ab;
+        }
+
+        /* =========================================================
+           Link Cards
+        ========================================================= */
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+
+            margin-top: 17px;
+        }
+
+        .link-card {
             position: relative;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            padding: 12px 13px;
+
             overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+
+            background: var(--surface-strong);
+            color: var(--text);
+
+            text-decoration: none;
+
+            box-shadow: var(--card-shadow);
+
+            transition:
+                transform var(--transition),
+                background-color var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
         }
 
-        .link-card-item::before {
+        .link-card::before {
             content: "";
+
             position: absolute;
-            left: -100%;
             top: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            bottom: 0;
+            left: -70%;
+
+            width: 45%;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    transparent,
+                    rgba(255, 255, 255, .2),
+                    transparent
+                );
+
             transform: skewX(-20deg);
-            transition: left 0.6s ease;
+
+            transition:
+                left 650ms ease;
         }
 
-        .link-card-item:hover {
-            transform: translateY(-4px) scale(1.015);
-            background: var(--link-hover-bg);
-            box-shadow: 0 14px 30px var(--shadow-color);
+        .link-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(244, 114, 182, .26);
+
+            box-shadow:
+                0 17px 32px rgba(0, 0, 0, .18);
         }
 
-        .link-card-item:hover::before {
-            left: 150%;
+        .link-card:hover::before {
+            left: 140%;
         }
 
-        .toast-msg {
+        .link-icon {
+            width: 46px;
+            height: 46px;
+
+            flex: 0 0 46px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+
+            color: var(--text);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, .08);
+        }
+
+        .link-icon svg {
+            width: 21px;
+            height: 21px;
+
+            fill: currentColor;
+        }
+
+        .link-main {
+            min-width: 0;
+            flex: 1;
+            text-align: left;
+        }
+
+        .link-title-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            min-width: 0;
+        }
+
+        .link-title {
+            min-width: 0;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: .02em;
+
+            color: var(--text);
+        }
+
+        .link-badge {
+            flex: 0 0 auto;
+
+            padding: 4px 6px;
+
+            border-radius: 6px;
+
+            background: rgba(244, 114, 182, .12);
+            border: 1px solid rgba(244, 114, 182, .22);
+
+            color: var(--accent);
+
+            font-size: 9px;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: .05em;
+        }
+
+        .link-description {
+            margin-top: 4px;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        .link-arrow {
+            flex: 0 0 auto;
+
+            color: var(--accent);
+
+            transition:
+                transform var(--transition-fast);
+        }
+
+        .link-card:hover .link-arrow {
+            transform: translateX(3px);
+        }
+
+        .link-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* =========================================================
+           Quote
+        ========================================================= */
+
+        .quote {
+            margin-top: 18px;
+            padding: 16px;
+
+            border: 1px dashed rgba(244, 114, 182, .3);
+            border-radius: var(--radius-md);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(244, 114, 182, .07),
+                    rgba(192, 132, 252, .05)
+                );
+
+            color: var(--text-soft);
+
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .quote-main {
+            font-weight: 900;
+        }
+
+        .quote-sub {
+            display: block;
+            margin-top: 4px;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           Footer
+        ========================================================= */
+
+        .footer {
+            margin-top: 20px;
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        /* =========================================================
+           Toast
+        ========================================================= */
+
+        .toast {
             position: fixed;
-            bottom: 28px;
+
             left: 50%;
-            transform: translateX(-50%) translateY(50px);
+            bottom: max(
+                22px,
+                calc(22px + env(safe-area-inset-bottom))
+            );
+
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            max-width: calc(100vw - 32px);
+
+            padding: 11px 15px;
+
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 999px;
+
+            background: rgba(15, 10, 24, .88);
+            color: #ffffff;
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, .35);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-            z-index: 100;
+            transform:
+                translate(-50%, 18px)
+                scale(.96);
+
+            transition:
+                opacity var(--transition),
+                visibility var(--transition),
+                transform var(--transition);
         }
 
-        .toast-msg.show {
-            transform: translateX(-50%) translateY(0);
+        html[data-theme="light"] .toast {
+            background: rgba(28, 20, 36, .91);
+        }
+
+        .toast.show {
             opacity: 1;
             visibility: visible;
+
+            transform:
+                translate(-50%, 0)
+                scale(1);
+        }
+
+        .toast svg {
+            width: 16px;
+            height: 16px;
+            color: #f9a8d4;
+            fill: currentColor;
+        }
+
+        .toast-text {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           Responsive
+        ========================================================= */
+
+        @media (max-width: 430px) {
+            .page {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .profile-content {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .banner {
+                height: 150px;
+            }
+
+            .avatar-wrapper {
+                width: 102px;
+                height: 102px;
+                margin-top: -51px;
+            }
+
+            .name {
+                font-size: 27px;
+            }
+
+            .intro {
+                font-size: 12px;
+            }
+
+            .link-card {
+                min-height: 68px;
+                padding: 11px;
+            }
+
+            .link-icon {
+                width: 43px;
+                height: 43px;
+                flex-basis: 43px;
+                border-radius: 14px;
+            }
+
+            .link-title {
+                font-size: 13px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .page {
+                padding-top: 34px;
+                padding-bottom: 40px;
+            }
+        }
+
+        /* =========================================================
+           Accessibility / reduced motion
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            #particleCanvas {
+                display: none;
+            }
         }
     </style>
 </head>
 
-<body class="flex flex-col items-center justify-start min-h-screen py-6 px-4 relative">
+<body>
 
-    <canvas id="bgCanvas"></canvas>
+    <!-- =========================================================
+         Inline SVG Icons
+    ========================================================== -->
 
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
+    <svg
+        width="0"
+        height="0"
+        style="position:absolute;overflow:hidden"
+        aria-hidden="true">
 
-    <!-- Header Toolbar -->
-    <header class="w-full max-w-[480px] flex items-center justify-between mb-4 z-10 px-2">
-        <div class="flex items-center gap-2">
-            <button id="themeBtn"
-                class="w-10 h-10 rounded-full bg-white/90 dark:bg-slate-800/80 border border-slate-300 dark:border-white/10 shadow-md flex items-center justify-center text-amber-500 dark:text-amber-400 hover:scale-105 active:scale-95 transition"
-                title="切換亮色 / 暗色主題">
-                <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
-            </button>
-        </div>
+        <symbol id="icon-moon" viewBox="0 0 24 24">
+            <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.7 8.7 0 1 0 12 12Z"/>
+        </symbol>
 
-        <div class="flex items-center gap-2">
-            <button id="shareBtn"
-                class="w-10 h-10 rounded-full bg-white/90 dark:bg-slate-800/80 border border-slate-300 dark:border-white/10 shadow-md flex items-center justify-center text-sky-600 dark:text-sky-400 hover:scale-105 active:scale-95 transition"
-                title="分享 / 複製網址">
-                <i class="fa-solid fa-share-nodes text-sm"></i>
-            </button>
-        </div>
-    </header>
+        <symbol id="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"/>
+        </symbol>
 
-    <main class="glass-card w-full max-w-[480px] pb-8 relative z-10 my-auto overflow-hidden">
+        <symbol id="icon-share" viewBox="0 0 24 24">
+            <circle cx="18" cy="5" r="2.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"/>
+            <circle cx="6" cy="12" r="2.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"/>
+            <circle cx="18" cy="19" r="2.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"/>
+            <path d="m8.2 10.9 7.6-4.7M8.2 13.1l7.6 4.7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"/>
+        </symbol>
 
-        <div class="banner-container">
-            <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                class="banner-img" alt="Cover Banner">
-            <div
-                class="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] tracking-wider font-bold text-pink-700 dark:text-pink-300 bg-white/90 dark:bg-slate-900/85 border border-pink-200 dark:border-white/10 backdrop-blur-md shadow-sm">
-                ✦ VTuber ✦ 音坂雪
+        <symbol id="icon-check" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"/>
+            <path d="m7.8 12.3 2.7 2.7 5.7-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </symbol>
+
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+            <path d="m9 5 7 7-7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </symbol>
+
+        <symbol id="icon-x" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </symbol>
+
+        <symbol id="icon-youtube" viewBox="0 0 24 24">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/>
+            <path d="m9.6 15.5 6.3-3.5-6.3-3.5v7Z"
+                fill="#fff"/>
+        </symbol>
+
+        <symbol id="icon-twitch" viewBox="0 0 24 24">
+            <path d="M4 2 1.5 5v15h5v3l3-3h5l5-5V2H4Zm13 12-3 3h-4l-3 3v-3H4.5V4h12.5v10Zm-3-7h2v5h-2V7Zm-5 0h2v5H9V7Z"/>
+        </symbol>
+
+        <symbol id="icon-discord" viewBox="0 0 24 24">
+            <path d="M19.5 5.1A17.7 17.7 0 0 0 15.2 4l-.6 1.2a15.7 15.7 0 0 0-5.2 0L8.8 4a17.7 17.7 0 0 0-4.3 1.1C2.1 8.5 1.4 11.8 1.7 15a17.8 17.8 0 0 0 5.3 2.6l1.1-1.5c-.6-.2-1.1-.5-1.6-.8l.4-.3a12.2 12.2 0 0 0 10.2 0l.4.3c-.5.3-1 .6-1.6.8l1.1 1.5a17.8 17.8 0 0 0 5.3-2.6c.4-3.9-.7-7.1-2.8-9.9ZM8.3 13.2c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/>
+        </symbol>
+
+        <symbol id="icon-facebook" viewBox="0 0 24 24">
+            <path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.3h3.4l-.5 3.5h-2.9V24C19.6 23 24 18.1 24 12.1Z"/>
+        </symbol>
+
+        <symbol id="icon-threads" viewBox="0 0 24 24">
+            <path d="M17.7 12.4c-.1-3.4-2-5.8-5.6-5.8-3.6 0-6.2 2.6-6.2 6.6s2.6 6.6 6.2 6.6c2.6 0 4.7-1.4 5.5-3.6h2.1c-1.1 3.4-4 5.9-8.2 5.9-4.8 0-8.5-4-8.5-8.9s3.7-8.9 8.5-8.9c4.8 0 7.9 3.3 8.1 8 .1 1.9-.5 3.7-1.6 5.1-1.1 1.3-2.6 2-4.2 2-1.7 0-2.8-.9-3.3-2.2-.6 1.4-2 2.2-3.8 2.2-2 0-3.5-1.5-3.5-3.6s1.5-3.6 3.5-3.6c1.4 0 2.6.6 3.2 1.6v-1.4h2.8v4.4c0 .9.5 1.4 1.3 1.4 1.2 0 2.1-1 2.6-2.9.1-.4.2-1 .2-1.6Zm-8.4 2.4c1.1 0 2-.8 2-1.9s-.9-1.9-2-1.9-2 .8-2 1.9.9 1.9 2 1.9Z"/>
+        </symbol>
+
+        <symbol id="icon-marshmallow" viewBox="0 0 32 32">
+            <rect x="2" y="8" width="28" height="16" rx="8"/>
+            <circle cx="10" cy="15" r="1.8" fill="#fff"/>
+            <circle cx="22" cy="15" r="1.8" fill="#fff"/>
+            <path d="M13.5 18c1 1.3 4 1.3 5 0"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.8"
+                stroke-linecap="round"/>
+        </symbol>
+    </svg>
+
+    <!-- Background -->
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+    <div class="orb orb-c" aria-hidden="true"></div>
+
+    <div class="page">
+
+        <!-- =====================================================
+             Toolbar
+        ====================================================== -->
+
+        <header class="toolbar">
+
+            <div class="toolbar-left">
+                <button
+                    id="themeButton"
+                    class="icon-button"
+                    type="button"
+                    aria-label="切換顯示主題"
+                    title="切換亮色 / 暗色模式">
+
+                    <svg aria-hidden="true">
+                        <use id="themeIcon" href="#icon-moon"></use>
+                    </svg>
+                </button>
             </div>
-        </div>
 
-        <div class="px-6 text-center">
+            <div class="toolbar-right">
+                <button
+                    id="shareButton"
+                    class="icon-button"
+                    type="button"
+                    aria-label="分享這個頁面"
+                    title="分享 / 複製網址">
 
-            <div class="avatar-wrap">
-                <div class="avatar-ring"></div>
-                <img class="avatar-img"
-                    src="https://pbs.twimg.com/profile_images/1823968300327706625/fekMHfCB_400x400.jpg"
-                    alt="Otozaka Yuki Avatar">
-                <span
-                    class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-3 border-white dark:border-slate-800 rounded-full shadow-sm"
-                    title="Active"></span>
+                    <svg aria-hidden="true">
+                        <use href="#icon-share"></use>
+                    </svg>
+                </button>
             </div>
 
-            <h1 class="text-2xl sm:text-3xl font-black mt-3 tracking-wide" style="color: var(--text-primary);">音坂ゆき</h1>
-            <span class="block text-xs text-pink-600 dark:text-pink-400 font-bold tracking-widest mt-1">@otozaka_yuki85
-                ✦ </span>
+        </header>
 
-            <p class="text-xs sm:text-sm font-bold leading-relaxed max-w-sm mx-auto my-3"
-                style="color: var(--text-secondary);">
-                歡迎來到音坂ゆき (Otozaka Yuki) 的連結頁面！🌸<br> 遊戲實況 / 交流社群 實況配信中！
-            </p>
+        <!-- =====================================================
+             Main Profile Card
+        ====================================================== -->
 
-            <!-- Tag Pills -->
-            <div class="flex flex-wrap justify-center gap-1.5 my-3">
-                <span class="tag-pill px-3 py-1 rounded-full text-[11px]">🎮 Gaming</span>
-                <span class="tag-pill px-3 py-1 rounded-full text-[11px]">🌸 VTuber</span>
-                <span class="tag-pill px-3 py-1 rounded-full text-[11px]">✨ Live</span>
-            </div>
+        <main class="profile-card">
 
-            <!-- Social Media Icon Bar -->
-            <div class="mt-4 mb-6">
-                <div class="text-[10px] font-black uppercase tracking-widest mb-2.5"
-                    style="color: var(--text-secondary);">
-                    ✦ SOCIAL MEDIA ✦
+            <!-- Banner -->
+            <section class="banner">
+
+                <img
+                    class="banner-image"
+                    src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1000&q=85"
+                    alt="音坂ゆき個人頁面的彩色背景"
+                    width="1000"
+                    height="400"
+                    fetchpriority="high"
+                    decoding="async">
+
+                <div class="banner-label">
+                    ✦ VTuber · 音坂ゆき
                 </div>
-                <div class="flex flex-wrap justify-center items-center gap-2.5 min-h-[46px]">
-                    <!-- X -->
-                    <a href="https://x.com/otozaka_yuki85" target="_blank" rel="noopener" class="social-icon-btn"
-                        title="X (Twitter)">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="var(--icon-mono-color)">
-                            <path
-                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                    </a>
-                    <!-- YouTube -->
-                    <a href="https://www.youtube.com/@Otozaka_yuki85" target="_blank" rel="noopener"
-                        class="social-icon-btn" title="YouTube">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#FF0000">
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                        </svg>
-                    </a>
-                    <!-- Twitch -->
-                    <a href="https://www.twitch.tv/otozaka_yuki85" target="_blank" rel="noopener"
-                        class="social-icon-btn" title="Twitch">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="#9146FF">
-                            <path
-                                d="M11.571 4.714h1.715v5.143h-1.715zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.429h-3.429l-2.571 2.571v-2.571H6.857V1.714h13.714z" />
-                        </svg>
-                    </a>
-                    <!-- Discord -->
-                    <a href="https://discord.gg/SNVU5a84Hb" target="_blank" rel="noopener" class="social-icon-btn"
-                        title="Discord">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#5865F2">
-                            <path
-                                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
-                        </svg>
-                    </a>
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/otozakayuki/" target="_blank" rel="noopener"
-                        class="social-icon-btn" title="Facebook">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1877F2">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
-                    <!-- Threads (Crisp Clean 24x24 SVG) -->
-                    <a href="https://www.threads.net/@otozaka_yukii85" target="_blank" rel="noopener"
-                        class="social-icon-btn" title="Threads">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="var(--icon-mono-color)">
-                            <path
-                                d="M17.751 12.441c-.089-3.385-2.028-5.753-5.59-5.753-3.57 0-6.198 2.595-6.198 6.551 0 3.957 2.628 6.552 6.198 6.552 2.628 0 4.673-1.442 5.485-3.642.046-.129.176-.231.332-.231h2.09c.198 0 .362.161.362.36 0 .044-.008.087-.024.128-1.077 3.364-4.004 5.885-8.245 5.885-4.75 0-8.5-3.953-8.5-8.852s3.75-8.852 8.5-8.852c4.75 0 7.87 3.272 8.064 7.994.079 1.933-.48 3.739-1.571 5.082-1.075 1.324-2.574 2.033-4.22 2.033-1.678 0-2.848-.895-3.289-2.206-.603 1.42-2.025 2.206-3.75 2.206-2.025 0-3.5-1.492-3.5-3.6 0-2.108 1.475-3.6 3.5-3.6 1.411 0 2.589.6 3.206 1.624v-1.439c0-.202.164-.366.366-.366h2.09c.202 0 .366.164.366.366v4.372c0 .942.51 1.441 1.319 1.441 1.191 0 2.142-1.036 2.591-2.915.107-.446.169-.971.186-1.567zm-8.411 2.373c1.103 0 1.996-.849 1.996-1.896 0-1.047-.893-1.896-1.996-1.896-1.103 0-1.996.849-1.996 1.896 0 1.047.893 1.896 1.996 1.896z" />
-                        </svg>
-                    </a>
-                    <!-- Marshmallow -->
-                    <a href="https://marshmallow-qa.com/otozaka_yuki85" target="_blank" rel="noopener"
-                        class="social-icon-btn" title="Marshmallow (棉花糖提問箱)">
-                        <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none">
-                            <rect x="2" y="8" width="28" height="16" rx="8" fill="#FF80AB" />
-                            <circle cx="10" cy="15" r="1.8" fill="#FFFFFF" />
-                            <circle cx="22" cy="15" r="1.8" fill="#FFFFFF" />
-                            <path d="M13.5 18C14.5 19.3 17.5 19.3 18.5 18" stroke="#FFFFFF" stroke-width="1.8"
-                                stroke-linecap="round" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Main Link Cards -->
-            <section class="flex flex-col gap-3">
-                <a href="https://x.com/otozaka_yuki85" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center shrink-0 shadow-sm border border-slate-300 dark:border-slate-700">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">𝕏 (Twitter) 官方推特</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">X</span>
-                        </div>
-                        <div class="text-[11px] font-bold truncate mt-0.5" style="color: var(--text-secondary);">
-                            最新活動資訊、日常推文與直播開播預告</div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
-
-                <a href="https://www.youtube.com/@Otozaka_yuki85" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-red-100 dark:bg-red-950/60 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0 shadow-sm border border-red-200 dark:border-red-900/50">
-                        <i class="fa-brands fa-youtube text-lg"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">📺 YouTube 官方頻道</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">Clip</span>
-                        </div>
-                        <div class="text-[11px] font-bold truncate mt-0.5" style="color: var(--text-secondary);">
-                            精華剪輯與定期直播頻道</div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
-
-                <a href="https://www.twitch.tv/otozaka_yuki85" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 flex items-center justify-center shrink-0 shadow-sm border border-purple-200 dark:border-purple-900/50">
-                        <i class="fa-brands fa-twitch text-lg"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">💜 Twitch 直播頻道</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">LIVE</span>
-                        </div>
-                        <div class="text-[11px] font-bold truncate mt-0.5" style="color: var(--text-secondary);">
-                            遊戲實況、與觀眾即時互動直播頻道</div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
-
-                <a href="https://discord.gg/SNVU5a84Hb" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 flex items-center justify-center shrink-0 shadow-sm border border-indigo-200 dark:border-indigo-900/50">
-                        <i class="fa-brands fa-discord text-lg"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">💬 Discord交流社群</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">CHAT</span>
-                        </div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
-
-                <a href="https://www.facebook.com/otozakayuki/" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 flex items-center justify-center shrink-0 shadow-sm border border-blue-200 dark:border-blue-900/50">
-                        <i class="fa-brands fa-facebook text-lg"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">📘 Facebook 官方粉絲專頁</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">FB</span>
-                        </div>
-                        <div class="text-[11px] font-bold truncate mt-0.5" style="color: var(--text-secondary);">
-                            最新動態與日常分享</div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
-
-                <!-- Threads Link Card (Updated Crisp SVG) -->
-                <a href="https://www.threads.net/@otozaka_yukii85" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 flex items-center justify-center shrink-0 shadow-sm border border-zinc-300 dark:border-zinc-700">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M17.751 12.441c-.089-3.385-2.028-5.753-5.59-5.753-3.57 0-6.198 2.595-6.198 6.551 0 3.957 2.628 6.552 6.198 6.552 2.628 0 4.673-1.442 5.485-3.642.046-.129.176-.231.332-.231h2.09c.198 0 .362.161.362.36 0 .044-.008.087-.024.128-1.077 3.364-4.004 5.885-8.245 5.885-4.75 0-8.5-3.953-8.5-8.852s3.75-8.852 8.5-8.852c4.75 0 7.87 3.272 8.064 7.994.079 1.933-.48 3.739-1.571 5.082-1.075 1.324-2.574 2.033-4.22 2.033-1.678 0-2.848-.895-3.289-2.206-.603 1.42-2.025 2.206-3.75 2.206-2.025 0-3.5-1.492-3.5-3.6 0-2.108 1.475-3.6 3.5-3.6 1.411 0 2.589.6 3.206 1.624v-1.439c0-.202.164-.366.366-.366h2.09c.202 0 .366.164.366.366v4.372c0 .942.51 1.441 1.319 1.441 1.191 0 2.142-1.036 2.591-2.915.107-.446.169-.971.186-1.567zm-8.411 2.373c1.103 0 1.996-.849 1.996-1.896 0-1.047-.893-1.896-1.996-1.896-1.103 0-1.996.849-1.996 1.896 0 1.047.893 1.896 1.996 1.896z" />
-                        </svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">🧵 Threads 隨筆紀錄</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">NEW</span>
-                        </div>
-                        <div class="text-[11px] font-bold truncate mt-0.5" style="color: var(--text-secondary);">
-                            短文與生活碎碎念</div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
-
-                <!-- Marshmallow Link Card -->
-                <a href="https://marshmallow-qa.com/otozaka_yuki85" target="_blank" rel="noopener"
-                    class="link-card-item p-3.5 flex items-center gap-3.5 text-left group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-pink-100 dark:bg-pink-950/60 flex items-center justify-center shrink-0 shadow-sm border border-pink-200 dark:border-pink-900/50">
-                        <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none">
-                            <rect x="2" y="8" width="28" height="16" rx="8" fill="#FF80AB" />
-                            <circle cx="10" cy="15" r="1.8" fill="#FFFFFF" />
-                            <circle cx="22" cy="15" r="1.8" fill="#FFFFFF" />
-                            <path d="M13.5 18C14.5 19.3 17.5 19.3 18.5 18" stroke="#FFFFFF" stroke-width="1.8"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-1.5">
-                            <span
-                                class="font-black text-sm tracking-wide group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors truncate"
-                                style="color: var(--text-primary);">🍬 棉花糖 (マシュマロ) 提問箱</span>
-                            <span
-                                class="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800 shrink-0">Q&amp;A</span>
-                        </div>
-                        <div class="text-[11px] font-bold truncate mt-0.5" style="color: var(--text-secondary);">
-                            匿名投稿、問題諮詢與直播主題許願</div>
-                    </div>
-                    <i
-                        class="fa-solid fa-chevron-right text-xs text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform pr-1"></i>
-                </a>
             </section>
 
-            <!-- Quote Box -->
-            <div class="mt-6 p-4 rounded-2xl bg-white/80 dark:bg-white/5 border border-dashed border-pink-300 dark:border-pink-500/30 text-center text-xs"
-                style="color: var(--text-secondary);">
-                「雪のように舞い降りる、あなたと私の大切な場所。」❄️✨<br>
-                <span class="text-[11px] opacity-90 mt-1 block">宛如飄落的純白雪花，這是我與你最珍貴的場所。</span>
+            <div class="profile-content">
+
+                <!-- Avatar -->
+                <div class="avatar-wrapper">
+
+                    <div
+                        class="avatar-ring"
+                        aria-hidden="true">
+                    </div>
+
+                    <img
+                        class="avatar-image"
+                        src="https://pbs.twimg.com/profile_images/1823968300327706625/fekMHfCB_400x400.jpg"
+                        alt="音坂ゆき Avatar"
+                        width="112"
+                        height="112"
+                        fetchpriority="high"
+                        decoding="async">
+
+                </div>
+
+                <!-- Name -->
+                <h1 class="name">
+                    音坂ゆき
+                </h1>
+
+                <div class="handle">
+                    @otozaka_yuki85
+                </div>
+
+                <!-- Introduction -->
+                <p class="intro">
+                    歡迎來到音坂ゆき
+                    <br>
+                    🎮 遊戲實況　／　🌸 VTuber　／　✨ 交流社群
+                </p>
+
+                <!-- Tags -->
+                <div class="tags" aria-label="內容類型">
+                    <span class="tag">🎮 Gaming</span>
+                    <span class="tag">🌸 VTuber</span>
+                    <span class="tag">✨ Live</span>
+                    <span class="tag">☁️ Japanese / 中文</span>
+                </div>
+
+                <!-- =================================================
+                     Social Media
+                ================================================== -->
+
+                <div class="section-label">
+                    ✦ Social Media ✦
+                </div>
+
+                <nav
+                    class="social-list"
+                    aria-label="社群媒體">
+
+                    <a
+                        class="social-button"
+                        href="https://x.com/otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="x"
+                        aria-label="X / Twitter"
+                        title="X / Twitter">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-x"></use>
+                        </svg>
+                    </a>
+
+                    <a
+                        class="social-button"
+                        href="https://www.youtube.com/@Otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="youtube"
+                        aria-label="YouTube"
+                        title="YouTube">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-youtube"></use>
+                        </svg>
+                    </a>
+
+                    <a
+                        class="social-button"
+                        href="https://www.twitch.tv/otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="twitch"
+                        aria-label="Twitch"
+                        title="Twitch">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-twitch"></use>
+                        </svg>
+                    </a>
+
+                    <a
+                        class="social-button"
+                        href="https://discord.gg/SNVU5a84Hb"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="discord"
+                        aria-label="Discord"
+                        title="Discord">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-discord"></use>
+                        </svg>
+                    </a>
+
+                    <a
+                        class="social-button"
+                        href="https://www.facebook.com/otozakayuki/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="facebook"
+                        aria-label="Facebook"
+                        title="Facebook">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-facebook"></use>
+                        </svg>
+                    </a>
+
+                    <a
+                        class="social-button"
+                        href="https://www.threads.net/@otozaka_yukii85"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="threads"
+                        aria-label="Threads"
+                        title="Threads">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-threads"></use>
+                        </svg>
+                    </a>
+
+                    <a
+                        class="social-button"
+                        href="https://marshmallow-qa.com/otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-brand="marshmallow"
+                        aria-label="Marshmallow"
+                        title="棉花糖提問箱">
+
+                        <svg aria-hidden="true">
+                            <use href="#icon-marshmallow"></use>
+                        </svg>
+                    </a>
+
+                </nav>
+
+                <!-- =================================================
+                     Link Cards
+                ================================================== -->
+
+                <section
+                    class="links"
+                    aria-label="主要連結">
+
+                    <!-- X -->
+                    <a
+                        class="link-card"
+                        href="https://x.com/otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-x"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    𝕏 官方推特
+                                </span>
+
+                                <span class="link-badge">
+                                    X
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                最新活動資訊、日常推文與直播預告
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                    <!-- YouTube -->
+                    <a
+                        class="link-card"
+                        href="https://www.youtube.com/@Otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            style="color:#ff0000;"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-youtube"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    📺 YouTube 官方頻道
+                                </span>
+
+                                <span class="link-badge">
+                                    VIDEO
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                精華剪輯、影片與直播存檔
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Twitch -->
+                    <a
+                        class="link-card"
+                        href="https://www.twitch.tv/otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            style="color:#9146ff;"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-twitch"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    💜 Twitch 直播頻道
+                                </span>
+
+                                <span class="link-badge">
+                                    LIVE
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                遊戲實況與觀眾即時互動
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Discord -->
+                    <a
+                        class="link-card"
+                        href="https://discord.gg/SNVU5a84Hb"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            style="color:#5865f2;"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-discord"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    💬 Discord 交流社群
+                                </span>
+
+                                <span class="link-badge">
+                                    CHAT
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                跟大家一起聊天、交流與追蹤最新消息
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Facebook -->
+                    <a
+                        class="link-card"
+                        href="https://www.facebook.com/otozakayuki/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            style="color:#1877f2;"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-facebook"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    📘 Facebook 官方粉絲專頁
+                                </span>
+
+                                <span class="link-badge">
+                                    FB
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                最新動態、公告與日常分享
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Threads -->
+                    <a
+                        class="link-card"
+                        href="https://www.threads.net/@otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-threads"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    🧵 Threads
+                                </span>
+
+                                <span class="link-badge">
+                                    NEW
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                短文、碎碎念與生活日常
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                    <!-- Marshmallow -->
+                    <a
+                        class="link-card"
+                        href="https://marshmallow-qa.com/otozaka_yuki85"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div
+                            class="link-icon"
+                            style="color:#ff80ab;"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-marshmallow"></use>
+                            </svg>
+
+                        </div>
+
+                        <div class="link-main">
+
+                            <div class="link-title-row">
+
+                                <span class="link-title">
+                                    🍬 棉花糖提問箱
+                                </span>
+
+                                <span class="link-badge">
+                                    Q&A
+                                </span>
+
+                            </div>
+
+                            <div class="link-description">
+                                匿名提問、交流與直播主題投稿
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="link-arrow"
+                            aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-arrow"></use>
+                            </svg>
+
+                        </div>
+
+                    </a>
+
+                </section>
+
+                <!-- Quote -->
+
+                <div class="quote">
+
+                    <div class="quote-main">
+                        「雪のように舞い降りる、あなたと私の大切な場所。」❄️✨
+                    </div>
+
+                    <span class="quote-sub">
+                        宛如飄落的純白雪花，這是我與你最珍貴的場所。
+                    </span>
+
+                </div>
+
+                <!-- Footer -->
+
+                <footer class="footer">
+                    © <span id="currentYear"></span>
+                    音坂ゆき · Otozaka Yuki
+                </footer>
+
             </div>
 
-            <!-- Footer -->
-            <footer class="mt-6 text-center text-[11px] text-slate-700 dark:text-slate-400 font-bold">
-                © <span id="year">2026</span> 音坂雪的info
-            </footer>
+        </main>
 
-        </div>
-    </main>
+    </div>
 
-    <!-- Toast Notification -->
-    <div id="toast"
-        class="toast-msg px-4 py-2.5 rounded-full bg-slate-900/90 text-white text-xs shadow-2xl flex items-center gap-2 border border-white/20">
-        <i class="fa-solid fa-circle-check text-pink-400"></i>
-        <span id="toastText">提示內容</span>
+    <!-- Toast -->
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true">
+
+        <svg aria-hidden="true">
+            <use href="#icon-check"></use>
+        </svg>
+
+        <span
+            id="toastText"
+            class="toast-text">
+            已完成
+        </span>
+
     </div>
 
     <script>
-        const themeBtn = document.getElementById('themeBtn');
-        const themeIcon = document.getElementById('themeIcon');
-        let isDark = true;
+        /* =========================================================
+           Theme
+        ========================================================= */
 
-        function toggleTheme() {
-            isDark = !isDark;
-            if (isDark) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.documentElement.classList.add('dark');
-                themeIcon.className = 'fa-solid fa-moon text-base';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                document.documentElement.classList.remove('dark');
-                themeIcon.className = 'fa-solid fa-sun text-base text-amber-500';
+        const root = document.documentElement;
+        const themeButton = document.getElementById("themeButton");
+        const themeIcon = document.getElementById("themeIcon");
+
+        const THEME_KEY = "otozaka-theme";
+
+        const systemPrefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)");
+
+        function getSavedTheme() {
+            try {
+                return localStorage.getItem(THEME_KEY);
+            } catch {
+                return null;
             }
         }
 
-        themeBtn.addEventListener('click', toggleTheme);
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastText').innerText = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
+        function saveTheme(theme) {
+            try {
+                localStorage.setItem(THEME_KEY, theme);
+            } catch {
+                // Ignore storage errors.
+            }
         }
 
-        document.getElementById('shareBtn').addEventListener('click', () => {
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(window.location.href);
-                showToast('已成功複製頁面連結！');
-            } else {
-                showToast('複製失敗，請手動複製網址');
+        function getPreferredTheme() {
+            const saved = getSavedTheme();
+
+            if (saved === "dark" || saved === "light") {
+                return saved;
             }
-        });
 
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
+            return systemPrefersDark &&
+                systemPrefersDark.matches
+                ? "dark"
+                : "light";
+        }
 
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
+        function setTheme(theme, persist = true) {
+            root.dataset.theme = theme;
 
-        const particles = Array.from({ length: 35 }, () => ({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            r: Math.random() * 3 + 1,
-            dx: (Math.random() - 0.5) * 0.5,
-            dy: Math.random() * 0.8 + 0.2,
-            o: Math.random() * 0.5 + 0.3
-        }));
+            if (theme === "dark") {
+                themeIcon.setAttribute(
+                    "href",
+                    "#icon-moon"
+                );
 
-        function drawCanvas() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => {
+                themeButton.setAttribute(
+                    "aria-label",
+                    "切換至亮色模式"
+                );
+
+                themeButton.setAttribute(
+                    "title",
+                    "切換至亮色模式"
+                );
+
+            } else {
+                themeIcon.setAttribute(
+                    "href",
+                    "#icon-sun"
+                );
+
+                themeButton.setAttribute(
+                    "aria-label",
+                    "切換至暗色模式"
+                );
+
+                themeButton.setAttribute(
+                    "title",
+                    "切換至暗色模式"
+                );
+            }
+
+            updateThemeColor(theme);
+
+            if (persist) {
+                saveTheme(theme);
+            }
+        }
+
+        function updateThemeColor(theme) {
+            let meta =
+                document.querySelector(
+                    'meta[name="theme-color"]'
+                );
+
+            if (!meta) {
+                meta = document.createElement("meta");
+                meta.name = "theme-color";
+                document.head.appendChild(meta);
+            }
+
+            meta.content =
+                theme === "dark"
+                    ? "#120d1c"
+                    : "#fff4f8";
+        }
+
+        themeButton.addEventListener(
+            "click",
+            () => {
+                const current =
+                    root.dataset.theme === "dark"
+                        ? "dark"
+                        : "light";
+
+                setTheme(
+                    current === "dark"
+                        ? "light"
+                        : "dark"
+                );
+            }
+        );
+
+        if (systemPrefersDark) {
+            systemPrefersDark.addEventListener(
+                "change",
+                event => {
+                    if (!getSavedTheme()) {
+                        setTheme(
+                            event.matches
+                                ? "dark"
+                                : "light",
+                            false
+                        );
+                    }
+                }
+            );
+        }
+
+        setTheme(
+            getPreferredTheme(),
+            false
+        );
+
+        /* =========================================================
+           Toast
+        ========================================================= */
+
+        const toast =
+            document.getElementById("toast");
+
+        const toastText =
+            document.getElementById("toastText");
+
+        let toastTimer = null;
+
+        function showToast(message) {
+            toastText.textContent = message;
+
+            toast.classList.add("show");
+
+            window.clearTimeout(toastTimer);
+
+            toastTimer = window.setTimeout(
+                () => {
+                    toast.classList.remove("show");
+                },
+                2400
+            );
+        }
+
+        /* =========================================================
+           Share / Copy
+        ========================================================= */
+
+        const shareButton =
+            document.getElementById(
+                "shareButton"
+            );
+
+        async function copyCurrentUrl() {
+            const url =
+                window.location.href;
+
+            try {
+                if (
+                    navigator.clipboard &&
+                    window.isSecureContext
+                ) {
+                    await navigator.clipboard.writeText(
+                        url
+                    );
+
+                    showToast(
+                        "已成功複製頁面連結！"
+                    );
+
+                    return true;
+                }
+
+                const textarea =
+                    document.createElement(
+                        "textarea"
+                    );
+
+                textarea.value = url;
+
+                textarea.style.position =
+                    "fixed";
+
+                textarea.style.opacity = "0";
+                textarea.style.pointerEvents =
+                    "none";
+
+                document.body.appendChild(
+                    textarea
+                );
+
+                textarea.focus();
+                textarea.select();
+
+                const success =
+                    document.execCommand(
+                        "copy"
+                    );
+
+                textarea.remove();
+
+                if (success) {
+                    showToast(
+                        "已成功複製頁面連結！"
+                    );
+                } else {
+                    showToast(
+                        "複製失敗，請手動複製網址"
+                    );
+                }
+
+                return success;
+
+            } catch {
+                showToast(
+                    "複製失敗，請手動複製網址"
+                );
+
+                return false;
+            }
+        }
+
+        shareButton.addEventListener(
+            "click",
+            async () => {
+
+                if (
+                    navigator.share &&
+                    window.isSecureContext
+                ) {
+                    try {
+                        await navigator.share({
+                            title:
+                                "音坂ゆき (Otozaka Yuki)",
+                            text:
+                                "來看看音坂ゆき的個人連結頁面 ✦",
+                            url:
+                                window.location.href
+                        });
+
+                        return;
+
+                    } catch (error) {
+                        if (
+                            error &&
+                            error.name ===
+                                "AbortError"
+                        ) {
+                            return;
+                        }
+                    }
+                }
+
+                await copyCurrentUrl();
+            }
+        );
+
+        /* =========================================================
+           Dynamic Year
+        ========================================================= */
+
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
+
+        /* =========================================================
+           Particle Background
+        ========================================================= */
+
+        const canvas =
+            document.getElementById(
+                "particleCanvas"
+            );
+
+        const ctx =
+            canvas.getContext("2d", {
+                alpha: true
+            });
+
+        const reduceMotion =
+            window.matchMedia &&
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            );
+
+        let particleAnimationId = null;
+        let isPageVisible = true;
+
+        const state = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            dpr: Math.min(
+                window.devicePixelRatio || 1,
+                2
+            )
+        };
+
+        const particles = [];
+
+        function particleCount() {
+            const area =
+                state.width *
+                state.height;
+
+            return Math.min(
+                42,
+                Math.max(
+                    18,
+                    Math.floor(
+                        area / 32000
+                    )
+                )
+            );
+        }
+
+        function resizeCanvas() {
+            state.width =
+                window.innerWidth;
+
+            state.height =
+                window.innerHeight;
+
+            state.dpr =
+                Math.min(
+                    window.devicePixelRatio || 1,
+                    2
+                );
+
+            canvas.width =
+                Math.floor(
+                    state.width *
+                    state.dpr
+                );
+
+            canvas.height =
+                Math.floor(
+                    state.height *
+                    state.dpr
+                );
+
+            canvas.style.width =
+                state.width + "px";
+
+            canvas.style.height =
+                state.height + "px";
+
+            ctx.setTransform(
+                state.dpr,
+                0,
+                0,
+                state.dpr,
+                0,
+                0
+            );
+
+            const target =
+                particleCount();
+
+            while (
+                particles.length <
+                target
+            ) {
+                particles.push(
+                    createParticle()
+                );
+            }
+
+            while (
+                particles.length >
+                target
+            ) {
+                particles.pop();
+            }
+        }
+
+        function createParticle() {
+            return {
+                x:
+                    Math.random() *
+                    state.width,
+
+                y:
+                    Math.random() *
+                    state.height,
+
+                radius:
+                    Math.random() * 1.9 +
+                    .5,
+
+                speedX:
+                    (Math.random() - .5) *
+                    .18,
+
+                speedY:
+                    Math.random() *
+                    .45 +
+                    .08,
+
+                alpha:
+                    Math.random() *
+                    .45 +
+                    .15
+            };
+        }
+
+        function drawParticles() {
+            if (
+                !isPageVisible ||
+                (reduceMotion &&
+                    reduceMotion.matches)
+            ) {
+                particleAnimationId =
+                    null;
+
+                return;
+            }
+
+            ctx.clearRect(
+                0,
+                0,
+                state.width,
+                state.height
+            );
+
+            const isDark =
+                root.dataset.theme ===
+                "dark";
+
+            const color =
+                isDark
+                    ? "255,255,255"
+                    : "219,39,119";
+
+            for (const p of particles) {
+
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${p.o})` : `rgba(216, 27, 96, ${p.o * 0.5})`;
+
+                ctx.arc(
+                    p.x,
+                    p.y,
+                    p.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    `rgba(${color},${p.alpha})`;
+
                 ctx.fill();
 
-                p.x += p.dx;
-                p.y += p.dy;
+                p.x += p.speedX;
+                p.y += p.speedY;
 
-                if (p.y > height) p.y = 0;
-                if (p.x > width) p.x = 0;
-                if (p.x < 0) p.x = width;
-            });
-            requestAnimationFrame(drawCanvas);
+                if (p.y > state.height + 10) {
+                    p.y = -10;
+                }
+
+                if (p.x < -10) {
+                    p.x =
+                        state.width + 10;
+                }
+
+                if (
+                    p.x >
+                    state.width + 10
+                ) {
+                    p.x = -10;
+                }
+            }
+
+            particleAnimationId =
+                window.requestAnimationFrame(
+                    drawParticles
+                );
         }
-        drawCanvas();
-    </script>
-</body>
 
+        function startParticles() {
+            if (
+                particleAnimationId ===
+                null &&
+                !reduceMotion?.matches
+            ) {
+                particleAnimationId =
+                    window.requestAnimationFrame(
+                        drawParticles
+                    );
+            }
+        }
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas,
+            {
+                passive: true
+            }
+        );
+
+        document.addEventListener(
+            "visibilitychange",
+            () => {
+                isPageVisible =
+                    !document.hidden;
+
+                if (isPageVisible) {
+                    startParticles();
+                }
+            }
+        );
+
+        if (reduceMotion) {
+            reduceMotion.addEventListener(
+                "change",
+                () => {
+                    if (
+                        reduceMotion.matches
+                    ) {
+                        if (
+                            particleAnimationId !==
+                            null
+                        ) {
+                            cancelAnimationFrame(
+                                particleAnimationId
+                            );
+
+                            particleAnimationId =
+                                null;
+                        }
+
+                    } else {
+                        startParticles();
+                    }
+                }
+            );
+        }
+
+        resizeCanvas();
+        startParticles();
+    </script>
+
+</body>
 </html>
